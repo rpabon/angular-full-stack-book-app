@@ -1,0 +1,31 @@
+version: '3'
+services:
+
+
+  client:
+    build:
+      context: ./client/
+    command: ng serve --host 0.0.0.0 --port 4200 --disableHostCheck
+    volumes:
+      - ./client/:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - '4200:4200'
+    environment:
+      PATH: /usr/app/node_modules/.bin:$PATH
+
+  api:
+    image: rpabon/book-api
+    ports:
+      - '5000:5000'
+    environment:
+      API_KEY: lImPPSmrPgewMvaxepEspw
+      SERVER_PORT: 5000
+      BASE_URL: https://www.goodreads.com
+
+  nginx:
+    restart: always
+    build:
+      context: ./nginx/
+    ports:
+      - '3050:80'
