@@ -1,0 +1,10 @@
+<button
+  pButton
+  type="button"
+  label="Fetch Books"
+  (click)="fetchBooks()"
+></button>
+
+<ul>
+  <li *ngFor="let book of books">{{ book.title }}</li>
+</ul>

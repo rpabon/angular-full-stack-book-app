@@ -1,7 +1,5 @@
 version: '3'
 services:
-
-
   client:
     build:
       context: ./client/
@@ -28,4 +26,4 @@ services:
     build:
       context: ./nginx/
     ports:
-      - '3050:80'
+      - '8080:80'
