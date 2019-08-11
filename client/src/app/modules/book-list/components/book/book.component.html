@@ -1,10 +1,7 @@
-<button
-  pButton
-  type="button"
-  label="Fetch Books"
-  (click)="fetchBooks()"
-></button>
-
-<ul>
-  <li *ngFor="let book of books">{{ book.title }}</li>
-</ul>
+<li (click)="onClick(book.id)">
+  <a [routerLink]="['/book', book.id]">
+    <p-card [header]="book.title" [subheader]="book.year">
+      <img [src]="book.url" [alt]="book.title" />
+    </p-card>
+  </a>
+</li>

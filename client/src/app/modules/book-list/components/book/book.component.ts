@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { BookService } from '../../services/book.service';
-import { SearchResults } from '../../../../../typings/SearchResults';
+import { Component, Input } from '@angular/core';
 import { Book } from '../../../../../typings/Book';
 
 @Component({
@@ -8,16 +6,10 @@ import { Book } from '../../../../../typings/Book';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss']
 })
-export class BookComponent implements OnInit {
-  books: Book[];
+export class BookComponent {
+  @Input() book: Book;
 
-  constructor(private bookService: BookService) {}
-
-  ngOnInit() {}
-
-  fetchBooks() {
-    this.bookService.fetchBooks().subscribe(({ search }: SearchResults) => {
-      this.books = search;
-    });
+  onClick(id: string) {
+    console.log(id);
   }
 }

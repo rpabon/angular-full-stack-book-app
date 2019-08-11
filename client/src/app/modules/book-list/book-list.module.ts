@@ -3,14 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { BookComponent } from './components/book/book.component';
+import { ListComponent } from './components/list/list.component';
 
 import { ButtonModule } from 'primeng/button';
-import { BookService } from './services/book.service';
+import { CardModule } from 'primeng/card';
+import { BookListService } from '../../services/book-list/book-list.service';
 
 @NgModule({
-  declarations: [BookComponent],
-  imports: [CommonModule, HttpClientModule, ButtonModule],
-  providers: [BookService],
-  exports: [BookComponent]
+  declarations: [BookComponent, ListComponent],
+  imports: [CommonModule, HttpClientModule, ButtonModule, CardModule],
+  providers: [BookListService],
+  exports: [ListComponent]
 })
 export class BookListModule {}
