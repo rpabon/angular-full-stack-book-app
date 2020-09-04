@@ -1,4 +1,4 @@
-<li (click)="onClick(book.id)">
+<li>
   <a [routerLink]="['/book', book.id]">
     <p-card [header]="book.title" [subheader]="book.year">
       <img [src]="book.url" [alt]="book.title" />

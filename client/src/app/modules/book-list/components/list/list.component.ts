@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchResults } from '../../../../../typings/SearchResults';
-import { Book } from '../../../../../typings/Book';
+import { BookInfo } from '../../../../../typings/BookInfo';
 import { BookListService } from '../../../../services/book-list/book-list.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { BookListService } from '../../../../services/book-list/book-list.servic
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  books: Book[];
+  books: BookInfo[];
 
   constructor(private bookListService: BookListService) {}
 

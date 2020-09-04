@@ -8,8 +8,4 @@ import { Book } from '../../../../../typings/Book';
 })
 export class BookComponent {
   @Input() book: Book;
-
-  onClick(id: string) {
-    console.log(id);
-  }
 }

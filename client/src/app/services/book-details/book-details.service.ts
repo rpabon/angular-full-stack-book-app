@@ -4,10 +4,10 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class BookListService {
+export class BookDetailsService {
   constructor(private http: HttpClient) {}
 
-  fetchBooks(query: string) {
-    return this.http.get(`/api/search?q=${query}`);
+  fetchBookDetails(id: string) {
+    return this.http.get(`/api/book/${id}`);
   }
 }

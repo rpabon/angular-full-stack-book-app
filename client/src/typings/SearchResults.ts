@@ -1,5 +1,5 @@
-import { Book } from './Book';
+import { BookInfo } from './BookInfo';
 
 export interface SearchResults {
-  search: Book[];
+  search: BookInfo[];
 }

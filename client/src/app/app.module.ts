@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookListModule } from './modules/book-list/book-list.module';
+import { BookDetailsModule } from './modules/book-details/book-details.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +13,8 @@ import { BookListModule } from './modules/book-list/book-list.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    BookListModule
+    BookListModule,
+    BookDetailsModule
   ],
   bootstrap: [AppComponent]
 })
