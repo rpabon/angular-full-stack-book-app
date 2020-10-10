@@ -1,7 +1,7 @@
 <div *ngIf="!book">Loading...</div>
 
 <div *ngIf="book">
-  <img [src]="book.small_image_url" [alt]="book.title" />
+  <img [src]="book.image_url" [alt]="book.title" />
   <h3>{{ book.title }}</h3>
   <p>{{ book.year }}</p>
   <div [innerHTML]="book.description"></div>
