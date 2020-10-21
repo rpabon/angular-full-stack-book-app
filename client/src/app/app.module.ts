@@ -1,23 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { BookComponent } from './components/book/book.component';
 import { ListComponent } from './components/list/list.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 
-import { BookListService } from './services/book-list/book-list.service';
-import { BookDetailsService } from './services/book-details/book-details.service';
+import { LoadingInterceptor } from './interceptors/loading/loading.interceptor';
+import { FetchBookInfoService } from './services/fetch-book-info/fetch-book-info.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    BookComponent,
     ListComponent,
     BookDetailsComponent,
   ],
@@ -27,7 +25,10 @@ import { BookDetailsService } from './services/book-details/book-details.service
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [BookListService, BookDetailsService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    FetchBookInfoService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

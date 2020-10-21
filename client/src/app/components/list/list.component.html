@@ -1,3 +1,9 @@
 <ul>
-  <app-book *ngFor="let book of books" [book]="book"></app-book>
+  <li *ngFor="let book of books">
+    <a [routerLink]="['/book', book.id]">
+      <h3>{{ book.title }}</h3>
+      <p>{{ book.year }}</p>
+      <img [src]="book.url_small" [alt]="book.title" />
+    </a>
+  </li>
 </ul>

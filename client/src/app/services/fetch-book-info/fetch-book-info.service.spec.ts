@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BookListService } from './book-list.service';
+import { FetchBookInfoService } from './fetch-book-info.service';
 
-describe('BookListService', () => {
+describe('FetchBookInfoService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: BookListService = TestBed.get(BookListService);
+    const service: FetchBookInfoService = TestBed.get(FetchBookInfoService);
     expect(service).toBeTruthy();
   });
 });

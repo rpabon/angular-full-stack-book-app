@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { BookListService } from '../../services/book-list/book-list.service';
+import { Router } from '@angular/router';
+import { FetchBookInfoService } from '../../services/fetch-book-info/fetch-book-info.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,18 @@ import { BookListService } from '../../services/book-list/book-list.service';
 export class HeaderComponent {
   private searchTerm = '';
 
-  constructor(private bookListService: BookListService) {}
+  constructor(
+    private router: Router,
+    private fetchBookInfoService: FetchBookInfoService
+  ) {}
+
+  fetchBooks() {
+    if (this.router.url !== '/') {
+      this.router.navigate(['/']);
+    }
+
+    this.fetchBookInfoService.fetchBooks(this.searchTerm);
+  }
 
   onChange({ target, key }: KeyboardEvent) {
     if (key === 'Enter') {
@@ -19,7 +31,7 @@ export class HeaderComponent {
     }
   }
 
-  fetchBooks() {
-    this.bookListService.fetchBooks(this.searchTerm);
+  onButtonClick() {
+    this.fetchBooks();
   }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookInfo } from '../../../typings/BookInfo';
-import { SearchResults } from '../../../typings/SearchResults';
-import { BookListService } from '../../services/book-list/book-list.service';
+import { FetchBookInfoService } from '../../services/fetch-book-info/fetch-book-info.service';
 
 @Component({
   selector: 'app-book-list',
@@ -9,15 +8,15 @@ import { BookListService } from '../../services/book-list/book-list.service';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  books: BookInfo[];
+  books: BookInfo[] = [];
 
-  constructor(private bookListService: BookListService) {}
+  constructor(private fetchBookInfoService: FetchBookInfoService) {}
 
   ngOnInit() {
-    this.bookListService.subscriber$.subscribe(({ search }: SearchResults) => {
+    this.fetchBookInfoService.observer.subscribe(({ search }) => {
       this.books = search;
     });
 
-    this.bookListService.fetchBooks('tolkien');
+    this.fetchBookInfoService.fetchBooks('tolkien');
   }
 }

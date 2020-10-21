@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { Book } from '../../../typings/Book';
-import { BookSearchResults } from '../../../typings/BookSearchResults';
-import { BookDetailsService } from '../../services/book-details/book-details.service';
+import { FetchBookInfoService } from '../../services/fetch-book-info/fetch-book-info.service';
 
 @Component({
   selector: 'app-book-details',
@@ -14,16 +14,14 @@ export class BookDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private bookDetailsService: BookDetailsService
+    private fetchBookInfoService: FetchBookInfoService
   ) {}
 
   ngOnInit() {
     const { id } = this.route.snapshot.params;
 
-    this.bookDetailsService
-      .fetchBookDetails(id)
-      .subscribe(({ book }: BookSearchResults) => {
-        this.book = book;
-      });
+    this.fetchBookInfoService.fetchBookDetails(id).subscribe(({ book }) => {
+      this.book = book;
+    });
   }
 }
