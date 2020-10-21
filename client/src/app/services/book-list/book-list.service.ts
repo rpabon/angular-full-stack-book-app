@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookListService {
+  private observer = new Subject();
+  public subscriber$ = this.observer.asObservable();
+
   constructor(private http: HttpClient) {}
 
   fetchBooks(query: string) {
-    return this.http.get(`/api/search?q=${query}`);
+    this.http.get(`/api/search?q=${query}`).subscribe((data) => {
+      this.observer.next(data);
+    });
   }
 }

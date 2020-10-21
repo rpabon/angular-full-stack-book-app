@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { BookInfo } from '../../../../../typings/BookInfo';
+import { BookInfo } from '../../../typings/BookInfo';
 
 @Component({
   selector: 'app-book',

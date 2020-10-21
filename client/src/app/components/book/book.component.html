@@ -1,0 +1,7 @@
+<li>
+  <a [routerLink]="['/book', book.id]">
+    <h3>{{ book.title }}</h3>
+    <p>{{ book.year }}</p>
+    <img [src]="book.url_small" [alt]="book.title" />
+  </a>
+</li>
