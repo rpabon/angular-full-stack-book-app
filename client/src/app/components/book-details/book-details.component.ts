@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Book } from '../../../typings/Book';
 import { FetchBookInfoService } from '../../services/fetch-book-info/fetch-book-info.service';
 
+import book from '../../../mocks/book';
 @Component({
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
@@ -18,10 +19,11 @@ export class BookDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const { id } = this.route.snapshot.params;
+    this.book = book;
+    // const { id } = this.route.snapshot.params;
 
-    this.fetchBookInfoService.fetchBookDetails(id).subscribe(({ book }) => {
-      this.book = book;
-    });
+    // this.fetchBookInfoService.fetchBookDetails(id).subscribe(({ book }) => {
+    //   this.book = book;
+    // });
   }
 }

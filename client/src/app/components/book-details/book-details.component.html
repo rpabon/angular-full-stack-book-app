@@ -1,6 +1,29 @@
 <div *ngIf="book">
-  <img [src]="book.image_url" [alt]="book.title" />
-  <h3>{{ book.title }}</h3>
-  <p>{{ book.year }}</p>
+  <div class="flex mb-8">
+    <img
+      class="material-shadow book-img mr-6"
+      [src]="book.image_url"
+      [alt]="book.title"
+    />
+
+    <div>
+      <h2 class="text-3xl font-bold">{{ book.title }}</h2>
+      <p class="text-gray-600">
+        <span>{{ book.year }}</span>
+        <br />
+        <span class="text-sm">{{ book.rating }}</span>
+      </p>
+
+      <div class="flex items-center mt-4">
+        <img
+          class="w-12 h-12 rounded-full mr-3"
+          [src]="book.author_image_url.__cdata"
+          [alt]="book.author"
+        />
+        <p>{{ book.author }}</p>
+      </div>
+    </div>
+  </div>
+
   <div [innerHTML]="book.description"></div>
 </div>

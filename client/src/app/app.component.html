@@ -1,5 +1,9 @@
 <app-header></app-header>
 
-<main class="container">
-  <router-outlet></router-outlet>
+<main class="main-section relative bg-gray-300 py-6">
+  <div *ngIf="isLoading" class="absolute inset-0 bg-black opacity-50"></div>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 </main>

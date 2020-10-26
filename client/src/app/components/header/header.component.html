@@ -1,4 +1,22 @@
-<header class="container border-b-1 mb-2">
-  <input type="search" placeholder="Find books..." (keyup)="onChange($event)" />
-  <button type="button" (click)="onButtonClick()">Go!</button>
+<header class="navbar is-link" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand is-size-3 has-text-weight-bold">
+      Discover Books
+    </div>
+
+    <input
+      type="search"
+      class="input is-info"
+      placeholder="Find books..."
+      (keyup)="onChange($event)"
+    />
+
+    <button
+      type="button"
+      class="button is-inverted is-info"
+      (click)="onButtonClick()"
+  >
+      Go!
+    </button>
+  </div>
 </header>
