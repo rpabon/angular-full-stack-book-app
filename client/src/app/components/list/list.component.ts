@@ -14,12 +14,13 @@ export class ListComponent implements OnInit {
   constructor(private fetchBookInfoService: FetchBookInfoService) {}
 
   ngOnInit() {
-    // this.fetchBookInfoService.observer.subscribe(({ search }) => {
-    //   this.books = search;
-    // });
-
-    // this.fetchBookInfoService.fetchBooks('tolkien');
-
     this.books = search.search;
+    //   this.fetchBookInfoService.bookList$.subscribe(({ books }) => {
+    //     this.books = books;
+    //   });
+
+    //   if (!this.books.length) {
+    //     // this.fetchBookInfoService.fetchBooks('tolkien');
+    //   }
   }
 }

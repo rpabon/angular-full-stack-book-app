@@ -1,9 +1,7 @@
 <app-header></app-header>
 
-<main class="main-section relative bg-gray-300 py-6">
-  <div *ngIf="isLoading" class="absolute inset-0 bg-black opacity-50"></div>
+<div *ngIf="isLoading | async" class="loading-overlay"></div>
 
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
+<main class="container p-4">
+  <router-outlet></router-outlet>
 </main>

@@ -6,6 +6,7 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 const routes: Routes = [
   { path: '', component: ListComponent },
   { path: 'book/:id', component: BookDetailsComponent },
+  { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 
 @NgModule({

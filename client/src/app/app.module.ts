@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +12,8 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 
 import { LoadingInterceptor } from './interceptors/loading/loading.interceptor';
 import { FetchBookInfoService } from './services/fetch-book-info/fetch-book-info.service';
+
+import { bookListReducer } from './reducers/book-list.reducer';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { FetchBookInfoService } from './services/fetch-book-info/fetch-book-info
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    StoreModule.forRoot({ bookList: bookListReducer }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },

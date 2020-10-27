@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  AfterContentChecked,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { LoadingService } from './services/loading/loading.service';
 
 @Component({
@@ -6,15 +10,15 @@ import { LoadingService } from './services/loading/loading.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  private isLoading$ = this.loadingService.isLoading;
-  isLoading: boolean;
+export class AppComponent implements AfterContentChecked {
+  isLoading = this.loadingService.isLoading;
 
-  constructor(private loadingService: LoadingService) {}
+  constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+    private loadingService: LoadingService
+  ) {}
 
-  ngOnInit() {
-    this.isLoading$.subscribe((isLoading) => {
-      this.isLoading = isLoading;
-    });
+  ngAfterContentChecked() {
+    this.changeDetectorRef.detectChanges();
   }
 }

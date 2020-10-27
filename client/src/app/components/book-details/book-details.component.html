@@ -14,10 +14,11 @@
         <span class="text-sm">{{ book.rating }}</span>
       </p>
 
-      <div class="flex items-center mt-4">
+      <div *gnIf="book.author" class="flex items-center mt-4">
         <img
+          *ngIf="authorImgUrl"
           class="w-12 h-12 rounded-full mr-3"
-          [src]="book.author_image_url.__cdata"
+          [src]="authorImgUrl"
           [alt]="book.author"
         />
         <p>{{ book.author }}</p>

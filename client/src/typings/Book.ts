@@ -9,7 +9,7 @@ export interface Book {
   isbn: number;
   description: string;
   num_pages: number;
-  author_image_url: string;
+  author_image_url: { __cdata: string };
   similar_books: Book[];
   year: number;
 }
