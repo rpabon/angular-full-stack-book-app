@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Book } from '../../../typings/Book';
 import { FetchBookInfoService } from '../../services/fetch-book-info/fetch-book-info.service';
+// import book from '../../../mocks/book';
 
 @Component({
   selector: 'app-book-details',
@@ -23,6 +24,7 @@ export class BookDetailsComponent implements OnInit {
     this.fetchBookInfoService.fetchBookDetails(id).subscribe(({ book }) => {
       this.book = book;
     });
+    // this.book = book;
   }
 
   get authorImgUrl() {

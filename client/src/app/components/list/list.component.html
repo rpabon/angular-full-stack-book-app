@@ -1,19 +1,28 @@
 <div class="columns is-multiline">
-  <div class="column is-half" *ngFor="let book of books">
-    <a [routerLink]="['/book', book.id]" class="box card">
-      <div class="card-image">
-        <figure class="image is-4by3">
-          <img [src]="book.url" [alt]="book.title" />
-        </figure>
-      </div>
-
-      <div class="card-content">
-        <div class="media-content">
-          <p class="title is-4">{{ book.title }}</p>
-          <p class="subtitle is-6">{{ book.author }}</p>
-          <p class="subtitle is-6">{{ book.year }}</p>
+  <div
+    *ngFor="let book of books"
+    class="column is-half-tablet is-one-third-widescreen"
+  >
+    <a [routerLink]="['/book', book.id]" class="box is-radiusless">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image">
+            <img [src]="book.url_small" [alt]="book.title" />
+          </figure>
         </div>
-      </div>
+
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong class="title is-5">{{ book.title }}</strong>
+              <br />
+              <span>{{ book.author }}</span>
+              <br />
+              <span>{{ book.year }}</span>
+            </p>
+          </div>
+        </div>
+      </article>
     </a>
   </div>
 </div>
